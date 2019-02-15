@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package cpuproto;
+
+// CpuInfo
+service CpuInfo {
+    // Save
+    rpc Save(SaveRequest) returns (SaveReply) {}
+}
+
+// SaveRequest
+message SaveRequest {
+    uint32 cpunum = 1;
+}
+
+// SaveReply
+message SaveReply {
+    uint32 code = 1;
+}
