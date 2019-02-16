@@ -8,9 +8,23 @@ service CpuInfo {
     rpc Save(SaveRequest) returns (SaveReply) {}
 }
 
+message processor{
+  int64 id = 1;
+  string vendorId = 2;
+  int64 model = 3;
+  string modelName = 4;
+  repeated string flags = 5;
+  int64 cores = 6;
+  double mHz = 7;
+  int64 cacheSize = 8;
+  int64 PhysicalId = 9;
+  int64 CoreId = 10;
+}
+
 // SaveRequest
 message SaveRequest {
-    uint32 cpunum = 1;
+    repeated processor pro = 1;
+    string ip = 2;
 }
 
 // SaveReply
